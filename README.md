@@ -1,1 +1,1 @@
-This is my very first game that can be played i browser. I will post itch.io link here later
+This is my very first game that can be played in a browser. I will post the itch.iolink here later.
