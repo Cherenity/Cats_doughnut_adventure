@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://2fvq2usv0o2i"]
+
+[ext_resource type="Texture2D" uid="uid://cfthvbbh8bo6q" path="res://Art/mybox.png" id="1_mxwmd"]
+[ext_resource type="Script" path="res://Objects/box.gd" id="1_niv7v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wcou"]
+atlas = ExtResource("1_mxwmd")
+region = Rect2(0, 0, 28, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hskji"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wcou")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8rvt"]
+size = Vector2(27, 17)
+
+[sub_resource type="Animation" id="Animation_taex5"]
+resource_name = "box_enter"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0.973684), Vector2(1.2, 0.974), Vector2(1, 0.973684)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x4uq2"]
+resource_name = "time_running_out"
+length = 11.0
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u35qh"]
+_data = {
+"box_enter": SubResource("Animation_taex5"),
+"time_running_out": SubResource("Animation_x4uq2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ssge"]
+size = Vector2(7, 3)
+
+[node name="Box" type="AnimatableBody2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_niv7v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.877393, 0.773797, 0.776787, 1)
+z_index = 2
+position = Vector2(0, 0.25)
+scale = Vector2(1, 0.973684)
+sprite_frames = SubResource("SpriteFrames_hskji")
+
+[node name="PlayerEnterArea" type="Area2D" parent="."]
+visible = false
+position = Vector2(0.5, 0)
+
+[node name="EnterColission" type="CollisionShape2D" parent="PlayerEnterArea"]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_p8rvt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u35qh")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_8ssge")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="PlayerEnterArea" to="." method="_on_player_enter_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

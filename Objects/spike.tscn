@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://85nxbyfwwwh5"]
+
+[ext_resource type="Script" path="res://Objects/Spike.gd" id="1_yhfdh"]
+[ext_resource type="Texture2D" uid="uid://ct6bbouvmrdol" path="res://Art/Candy Land - full pack v1.1/candy land - chocolate version.png" id="2_ani0a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfgv6"]
+atlas = ExtResource("2_ani0a")
+region = Rect2(80, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c41fv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfgv6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qqye"]
+size = Vector2(5.46583, 10.8533)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fejeg"]
+size = Vector2(3.44306, 5.41306)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sipja"]
+size = Vector2(30.0457, 4.49369)
+
+[node name="Spike" type="AnimatableBody2D"]
+position = Vector2(0, 2)
+script = ExtResource("1_yhfdh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7.49897, -7.46224)
+scale = Vector2(1.96089, 1.38656)
+sprite_frames = SubResource("SpriteFrames_c41fv")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="Hurtshape" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-1.33244, -9.36933)
+shape = SubResource("RectangleShape2D_1qqye")
+
+[node name="Hurtshape2" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(11.2938, -4.54698)
+shape = SubResource("RectangleShape2D_fejeg")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.81224, 1.37853)
+shape = SubResource("RectangleShape2D_sipja")
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

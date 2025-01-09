@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://q4gy5w8tp63t"]
+
+[ext_resource type="Script" path="res://Levels/moving_restriction.gd" id="1_mjilm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4edyv"]
+size = Vector2(96.3326, 73.0825)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymjji"]
+size = Vector2(20, 95.7498)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sbbu"]
+size = Vector2(26.6176, 73.8141)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_mjilm")
+
+[node name="restrict_collision" type="CollisionShape2D" parent="."]
+position = Vector2(-22.9332, 0.81039)
+shape = SubResource("RectangleShape2D_4edyv")
+disabled = true
+
+[node name="r_area" type="Area2D" parent="."]
+position = Vector2(50.0031, -5.95275)
+
+[node name="r_collision" type="CollisionShape2D" parent="r_area"]
+position = Vector2(35.8672, 5.31123)
+shape = SubResource("RectangleShape2D_ymjji")
+debug_color = Color(0.812993, 0.30587, 0.692624, 0.42)
+
+[node name="info" type="Area2D" parent="."]
+
+[node name="info_collision" type="CollisionShape2D" parent="info"]
+position = Vector2(19.9765, 0.881039)
+shape = SubResource("RectangleShape2D_2sbbu")
+disabled = true
+
+[connection signal="body_entered" from="r_area" to="." method="_on_r_area_body_entered"]
+[connection signal="body_entered" from="info" to="." method="_on_info_body_entered"]
+[connection signal="body_exited" from="info" to="." method="_on_info_body_exited"]

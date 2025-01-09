@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://dginr0osvva7u"]
+
+[ext_resource type="Script" path="res://MovingPlatforms/clearPlatform.gd" id="1_6mhfd"]
+[ext_resource type="Texture2D" uid="uid://d20ohm5iqlwet" path="res://Art/NEW Sugary Tiles.png" id="2_eo4y1"]
+[ext_resource type="FontFile" uid="uid://ctvref1scnoff" path="res://Art/friendlyscribbles/friendlyscribbles.ttf" id="3_isewn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih3mr"]
+size = Vector2(48.0812, 47.7169)
+
+[sub_resource type="Animation" id="Animation_1u3ff"]
+resource_name = "move"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 27)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yomid"]
+_data = {
+"move": SubResource("Animation_1u3ff")
+}
+
+[node name="clearPlatform" type="Node2D"]
+position = Vector2(-0.00630808, -0.00734854)
+script = ExtResource("1_6mhfd")
+
+[node name="clearPlatformAnimatableBody" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="clearPlatformAnimatableBody"]
+position = Vector2(0.297302, 0)
+texture = ExtResource("2_eo4y1")
+region_enabled = true
+region_rect = Rect2(488, 0, 64, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="clearPlatformAnimatableBody"]
+position = Vector2(0.513382, 0.0562072)
+shape = SubResource("RectangleShape2D_ih3mr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="clearPlatformAnimatableBody"]
+libraries = {
+"": SubResource("AnimationLibrary_yomid")
+}
+
+[node name="required" type="Label" parent="clearPlatformAnimatableBody"]
+offset_left = -23.0
+offset_top = 6.0
+offset_right = 24.0
+offset_bottom = 24.0
+theme_override_colors/font_shadow_color = Color(0.358901, 0.229957, 0.119484, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_isewn")
+horizontal_alignment = 1

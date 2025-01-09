@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://d27qlgf1p2qoe"]
+
+[ext_resource type="Script" path="res://Levels/checkPoint.gd" id="1_qwkjq"]
+[ext_resource type="FontFile" uid="uid://ctvref1scnoff" path="res://Art/friendlyscribbles/friendlyscribbles.ttf" id="2_40pvs"]
+[ext_resource type="Texture2D" uid="uid://f5g6mm0ujk8c" path="res://Art/checkPoint.png" id="2_b6ydj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thumu"]
+atlas = ExtResource("2_b6ydj")
+region = Rect2(0, 0, 16, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfkq5"]
+atlas = ExtResource("2_b6ydj")
+region = Rect2(16, 0, 16, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2bjej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thumu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfkq5")
+}],
+"loop": true,
+"name": &"enter",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrgue"]
+size = Vector2(12.7984, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqrj1"]
+size = Vector2(12.9229, 29.0964)
+
+[node name="checkPoint" type="AnimatableBody2D"]
+script = ExtResource("1_qwkjq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2bjej")
+animation = &"enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.614267, 0)
+shape = SubResource("RectangleShape2D_yrgue")
+disabled = true
+
+[node name="EnterArea" type="Area2D" parent="."]
+
+[node name="AreaCollision" type="CollisionShape2D" parent="EnterArea"]
+position = Vector2(0.552398, -0.0275626)
+shape = SubResource("RectangleShape2D_dqrj1")
+
+[node name="text" type="Label" parent="."]
+visible = false
+offset_left = -35.3405
+offset_top = -42.6708
+offset_right = 36.6595
+offset_bottom = -18.6708
+theme_override_colors/font_shadow_color = Color(0.903298, 0.201524, 0.663898, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("2_40pvs")
+theme_override_font_sizes/font_size = 15
+text = "Checkpoint"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[connection signal="body_entered" from="EnterArea" to="." method="_on_enter_area_body_entered"]
+[connection signal="body_exited" from="EnterArea" to="." method="_on_enter_area_body_exited"]

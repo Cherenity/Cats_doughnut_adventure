@@ -1,0 +1,274 @@
+[gd_scene load_steps=23 format=3 uid="uid://bqr1qe3vyq2wu"]
+
+[ext_resource type="Script" path="res://Main/hud.gd" id="1_q5otf"]
+[ext_resource type="Texture2D" uid="uid://colx7w5er0unc" path="res://Art/progress.png" id="2_5b33s"]
+[ext_resource type="Texture2D" uid="uid://dhp8ye661w180" path="res://Art/Mini GUI Elements/HUD-tausta.png" id="2_36sm0"]
+[ext_resource type="FontFile" uid="uid://ctvref1scnoff" path="res://Art/friendlyscribbles/friendlyscribbles.ttf" id="3_1ug3o"]
+[ext_resource type="Texture2D" uid="uid://mlvjl4inm7kh" path="res://Art/over.png" id="3_f4ntx"]
+[ext_resource type="Script" path="res://Main/HealthBar.gd" id="4_an0uo"]
+[ext_resource type="Script" path="res://Objects/StaminaBar.gd" id="6_ceujk"]
+[ext_resource type="Texture2D" uid="uid://dpopg7gtbed8s" path="res://Art/Candy Land - full pack v1.1/collectables.png" id="7_wumqy"]
+[ext_resource type="Texture2D" uid="uid://ba8bvl6wcsg1l" path="res://Objects/doughnuts.png" id="9_qj85f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i31ag"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o6rl"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiic1"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os7n7"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8afbg"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdmwj"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijraj"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0go2x"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alcgn"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7b30"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omr50"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bd47"]
+atlas = ExtResource("7_wumqy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewobl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i31ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o6rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiic1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os7n7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8afbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdmwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijraj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0go2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alcgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7b30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omr50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bd47")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_q5otf")
+
+[node name="Hud-tausta" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(234.87, 72.5313)
+scale = Vector2(1.60844, 1.48117)
+texture = ExtResource("2_36sm0")
+
+[node name="TimeElapsed" type="Label" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.18
+anchor_right = 0.111
+anchor_bottom = 0.18
+offset_left = 398.128
+offset_top = 14.36
+offset_right = 630.128
+offset_bottom = 52.36
+grow_horizontal = 2
+size_flags_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1ug3o")
+theme_override_font_sizes/font_size = 31
+text = "Time Elapsed "
+horizontal_alignment = 1
+
+[node name="GemsLabel" type="Label" parent="."]
+offset_left = 120.0
+offset_top = 31.0
+offset_right = 277.0
+offset_bottom = 60.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_1ug3o")
+theme_override_font_sizes/font_size = 24
+text = "Collected: 0"
+
+[node name="TotalPoints" type="Label" parent="."]
+offset_left = 122.0
+offset_top = 78.0
+offset_right = 236.0
+offset_bottom = 107.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_1ug3o")
+theme_override_font_sizes/font_size = 24
+text = "Points: 30000"
+
+[node name="LevelComplete" type="Label" parent="."]
+visible = false
+offset_left = 494.0
+offset_top = 42.0
+offset_right = 974.0
+offset_bottom = 125.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("3_1ug3o")
+theme_override_font_sizes/font_size = 60
+text = "Game Complete"
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 57.0
+offset_top = 14.0
+offset_right = 83.0
+offset_bottom = 134.0
+max_value = 6.0
+value = 3.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("2_5b33s")
+texture_over = ExtResource("3_f4ntx")
+texture_progress = ExtResource("2_5b33s")
+tint_under = Color(0.846762, 0.450603, 0.606143, 1)
+tint_over = Color(0, 0, 0, 0)
+tint_progress = Color(0.36266, 0.547891, 0.30072, 1)
+script = ExtResource("4_an0uo")
+
+[node name="healthnro" type="Label" parent="HealthBar"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 89.0
+offset_right = 25.0
+offset_bottom = 114.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("3_1ug3o")
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(100, 183)
+scale = Vector2(3.42188, 3.39063)
+sprite_frames = SubResource("SpriteFrames_ewobl")
+frame_progress = 0.482049
+offset = Vector2(72.1194, -42.3385)
+
+[node name="StaminaBar" type="TextureProgressBar" parent="."]
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 44.0
+offset_bottom = 134.0
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("2_5b33s")
+texture_over = ExtResource("3_f4ntx")
+texture_progress = ExtResource("2_5b33s")
+tint_under = Color(0.513726, 0.631373, 0.941176, 1)
+tint_over = Color(1, 1, 1, 0)
+tint_progress = Color(0.235294, 0.501961, 0.537255, 1)
+script = ExtResource("6_ceujk")
+
+[node name="Doughnut0" type="Sprite2D" parent="."]
+self_modulate = Color(0.423529, 0.423529, 0.423529, 0.513726)
+position = Vector2(119, 164)
+scale = Vector2(2, 2)
+texture = ExtResource("9_qj85f")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Doughnut1" type="Sprite2D" parent="."]
+self_modulate = Color(0.423529, 0.423529, 0.423529, 0.513726)
+position = Vector2(237, 164)
+scale = Vector2(2, 2)
+texture = ExtResource("9_qj85f")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="Doughnut2" type="Sprite2D" parent="."]
+self_modulate = Color(0.423529, 0.423529, 0.423529, 0.513726)
+position = Vector2(178, 164)
+scale = Vector2(2, 2)
+texture = ExtResource("9_qj85f")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
+
+[node name="Doughnut3" type="Sprite2D" parent="."]
+self_modulate = Color(0.423529, 0.423529, 0.423529, 0.513726)
+position = Vector2(296, 164)
+scale = Vector2(2, 2)
+texture = ExtResource("9_qj85f")
+region_enabled = true
+region_rect = Rect2(32, 32, 32, 32)
+
+[node name="Doughnut4" type="Sprite2D" parent="."]
+self_modulate = Color(0.423529, 0.423529, 0.423529, 0.513726)
+position = Vector2(355, 164)
+scale = Vector2(2, 2)
+texture = ExtResource("9_qj85f")
+region_enabled = true
+region_rect = Rect2(64, 32, 32, 32)

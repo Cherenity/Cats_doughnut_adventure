@@ -1,0 +1,196 @@
+[gd_scene load_steps=27 format=3 uid="uid://c0h3l6r8bu1i5"]
+
+[ext_resource type="Script" path="res://Enemies/bearEnemy.gd" id="1_qvw8g"]
+[ext_resource type="Texture2D" uid="uid://c6ketpgdcfhst" path="res://Art/Sprite Pack 5/7 - Grizzly/Attack_(48 x 32).png" id="1_wgh8k"]
+[ext_resource type="Texture2D" uid="uid://cvvvsvyufgal4" path="res://Art/Sprite Pack 5/7 - Grizzly/Idle_(48 x 32).png" id="2_ag0lq"]
+[ext_resource type="Texture2D" uid="uid://cuitip4msufc3" path="res://Art/Sprite Pack 5/7 - Grizzly/Sleeping_&_Wakeup_(48 x 32).png" id="3_acpr7"]
+[ext_resource type="Texture2D" uid="uid://ch2kbjucy63m0" path="res://Art/Sprite Pack 5/7 - Grizzly/Walking_(48 x 32).png" id="4_n0hnh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghx5j"]
+atlas = ExtResource("3_acpr7")
+region = Rect2(47, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrkrd"]
+atlas = ExtResource("3_acpr7")
+region = Rect2(94, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3i5g"]
+atlas = ExtResource("3_acpr7")
+region = Rect2(0, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv21e"]
+atlas = ExtResource("1_wgh8k")
+region = Rect2(0, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5eo7"]
+atlas = ExtResource("1_wgh8k")
+region = Rect2(47, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok5lg"]
+atlas = ExtResource("1_wgh8k")
+region = Rect2(94, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yud72"]
+atlas = ExtResource("1_wgh8k")
+region = Rect2(141, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otoue"]
+atlas = ExtResource("1_wgh8k")
+region = Rect2(188, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv6vv"]
+atlas = ExtResource("2_ag0lq")
+region = Rect2(0, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6nyg"]
+atlas = ExtResource("3_acpr7")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1kfm"]
+atlas = ExtResource("4_n0hnh")
+region = Rect2(0, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5rna"]
+atlas = ExtResource("4_n0hnh")
+region = Rect2(47, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ausap"]
+atlas = ExtResource("4_n0hnh")
+region = Rect2(94, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w77f4"]
+atlas = ExtResource("4_n0hnh")
+region = Rect2(141, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bdxj"]
+atlas = ExtResource("4_n0hnh")
+region = Rect2(188, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y7uw"]
+atlas = ExtResource("4_n0hnh")
+region = Rect2(235, 0, 47, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wojmp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghx5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrkrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3i5g")
+}],
+"loop": true,
+"name": &"GoToSleep",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv21e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5eo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok5lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yud72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otoue")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv6vv")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6nyg")
+}],
+"loop": true,
+"name": &"Sleeping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1kfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5rna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ausap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w77f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bdxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y7uw")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pelo"]
+size = Vector2(26, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tltwo"]
+size = Vector2(20, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4cvf"]
+size = Vector2(118, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfjdg"]
+size = Vector2(24.125, 40)
+
+[node name="bearEnemy" type="CharacterBody2D"]
+script = ExtResource("1_qvw8g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wojmp")
+animation = &"Hit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -8.5)
+shape = SubResource("RectangleShape2D_1pelo")
+disabled = true
+
+[node name="hurtArea" type="Area2D" parent="."]
+position = Vector2(-1, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtArea"]
+position = Vector2(-11, -7)
+shape = SubResource("RectangleShape2D_tltwo")
+
+[node name="frontDetection" type="Area2D" parent="."]
+
+[node name="frontDetectionColision" type="CollisionShape2D" parent="frontDetection"]
+position = Vector2(-83, 0)
+shape = SubResource("RectangleShape2D_m4cvf")
+
+[node name="sleep" type="Area2D" parent="."]
+
+[node name="sleepCollision" type="CollisionShape2D" parent="sleep"]
+position = Vector2(21, -4)
+shape = SubResource("RectangleShape2D_wfjdg")
+
+[connection signal="body_entered" from="hurtArea" to="." method="_on_hurt_area_body_entered"]
+[connection signal="body_exited" from="hurtArea" to="." method="_on_hurt_area_body_exited"]
+[connection signal="body_entered" from="frontDetection" to="." method="_on_front_detection_body_entered"]
+[connection signal="body_exited" from="frontDetection" to="." method="_on_front_detection_body_exited"]
+[connection signal="body_entered" from="sleep" to="." method="_on_sleep_body_entered"]

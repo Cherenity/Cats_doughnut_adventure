@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjg35b3sw73eb"]
+
+[ext_resource type="Texture2D" uid="uid://dg3l3x2reyisv" path="res://Art/CandyKitty.png" id="1_42rvg"]
+[ext_resource type="Script" path="res://Player/ghost.gd" id="2_iyit4"]
+
+[node name="Ghost" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.239216)
+show_behind_parent = true
+position = Vector2(0, -23)
+scale = Vector2(1.00434, 1)
+texture = ExtResource("1_42rvg")
+flip_h = true
+hframes = 8
+vframes = 8
+frame = 11
+script = ExtResource("2_iyit4")

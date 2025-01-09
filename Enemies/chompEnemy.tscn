@@ -1,0 +1,176 @@
+[gd_scene load_steps=22 format=3 uid="uid://bfknuh6g3lg8a"]
+
+[ext_resource type="Script" path="res://Enemies/chompEnemy.gd" id="1_qq2lr"]
+[ext_resource type="Texture2D" uid="uid://b6vy76hogmqkc" path="res://Art/Sprite Pack 5/6 - Mr. Chomps/Crawl_&_Chomp_(32 x 32).png" id="2_6q00c"]
+[ext_resource type="Texture2D" uid="uid://bchjyj1xg623a" path="res://Art/Sprite Pack 5/6 - Mr. Chomps/Crawling_(32 x 32).png" id="2_qknug"]
+[ext_resource type="Texture2D" uid="uid://b78tnjgqyr1yu" path="res://Art/Sprite Pack 5/6 - Mr. Chomps/Hurt_(32 x 32).png" id="4_6ydm6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eum2n"]
+size = Vector2(158, 12.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbo2y"]
+size = Vector2(16, 2.38461)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpy4q"]
+size = Vector2(16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io452"]
+atlas = ExtResource("2_6q00c")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loodl"]
+atlas = ExtResource("2_6q00c")
+region = Rect2(64, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8auah"]
+atlas = ExtResource("2_6q00c")
+region = Rect2(96, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqyvt"]
+atlas = ExtResource("2_6q00c")
+region = Rect2(128, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mirsa"]
+atlas = ExtResource("2_6q00c")
+region = Rect2(160, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vtou"]
+atlas = ExtResource("2_qknug")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkbil"]
+atlas = ExtResource("2_qknug")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akpxa"]
+atlas = ExtResource("2_qknug")
+region = Rect2(64, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4onn"]
+atlas = ExtResource("2_qknug")
+region = Rect2(96, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1icql"]
+atlas = ExtResource("2_qknug")
+region = Rect2(128, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6tc6"]
+atlas = ExtResource("2_qknug")
+region = Rect2(160, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n32kq"]
+atlas = ExtResource("4_6ydm6")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_py4uh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io452")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loodl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8auah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqyvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mirsa")
+}],
+"loop": true,
+"name": &"chomp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vtou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkbil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akpxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4onn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1icql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6tc6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n32kq")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5w18"]
+size = Vector2(3.75, 13.3485)
+
+[node name="chompEnemy" type="CharacterBody2D"]
+scale = Vector2(1.3, 1.3)
+script = ExtResource("1_qq2lr")
+
+[node name="Sides" type="Area2D" parent="."]
+position = Vector2(-1, 1)
+
+[node name="l_collision" type="CollisionShape2D" parent="Sides"]
+position = Vector2(-78, 0)
+shape = SubResource("RectangleShape2D_eum2n")
+
+[node name="r_collision" type="CollisionShape2D" parent="Sides"]
+position = Vector2(80, 0)
+shape = SubResource("RectangleShape2D_eum2n")
+disabled = true
+
+[node name="Above" type="Area2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="up_collision" type="CollisionShape2D" parent="Above"]
+position = Vector2(0, -6.80769)
+shape = SubResource("RectangleShape2D_rbo2y")
+debug_color = Color(0.760284, 0.179706, 1, 0.42)
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_tpy4q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_py4uh")
+
+[node name="l_ray" type="RayCast2D" parent="."]
+target_position = Vector2(-13, 0)
+
+[node name="r_ray" type="RayCast2D" parent="."]
+target_position = Vector2(13, 0)
+
+[node name="hurt_area" type="Area2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="hurt_l" type="CollisionShape2D" parent="hurt_area"]
+position = Vector2(-6.84407, -0.182853)
+shape = SubResource("RectangleShape2D_u5w18")
+
+[node name="hurt_r" type="CollisionShape2D" parent="hurt_area"]
+position = Vector2(6.82507, -0.177776)
+shape = SubResource("RectangleShape2D_u5w18")
+disabled = true
+
+[connection signal="body_entered" from="Sides" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Sides" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Above" to="." method="_on_above_body_entered"]
+[connection signal="body_exited" from="Above" to="." method="_on_above_body_exited"]
+[connection signal="body_entered" from="hurt_area" to="." method="_on_hurt_area_body_entered"]

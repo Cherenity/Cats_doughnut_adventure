@@ -1,0 +1,292 @@
+[gd_scene load_steps=25 format=3 uid="uid://b5cvkbfqsmcla"]
+
+[ext_resource type="Script" path="res://Main/main_menu.gd" id="1_s62li"]
+[ext_resource type="Theme" uid="uid://dadcnlykfi04n" path="res://Main/main_menu_theme.tres" id="2_7o2m0"]
+[ext_resource type="FontFile" uid="uid://ctvref1scnoff" path="res://Art/friendlyscribbles/friendlyscribbles.ttf" id="2_j5omk"]
+[ext_resource type="Texture2D" uid="uid://cqknygy8o32wu" path="res://Art/Clouds/1.png" id="3_d0ig6"]
+[ext_resource type="Texture2D" uid="uid://dhp8ye661w180" path="res://Art/Mini GUI Elements/HUD-tausta.png" id="4_l82jx"]
+[ext_resource type="Texture2D" uid="uid://dg3l3x2reyisv" path="res://Art/CandyKitty.png" id="5_jubcp"]
+[ext_resource type="Texture2D" uid="uid://drusgvimypkfw" path="res://Art/Clouds/4.png" id="6_ilm4f"]
+[ext_resource type="AudioStream" uid="uid://b8agtpdnv82lv" path="res://Music/Caketown 1.mp3" id="7_yfd26"]
+[ext_resource type="Texture2D" uid="uid://ba8bvl6wcsg1l" path="res://Objects/doughnuts.png" id="9_8yp88"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf57x"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxxfh"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2vg5"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pyuq"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixmc6"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a612"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcytr"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rars7"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jryy"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1klkh"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s8hk"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a43lu"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqk0f"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snbh1"]
+atlas = ExtResource("5_jubcp")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7b7vm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf57x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxxfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2vg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pyuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixmc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a612")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcytr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rars7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jryy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1klkh")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s8hk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a43lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqk0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snbh1")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[node name="MainMenu" type="Node2D"]
+position = Vector2(25, -81)
+script = ExtResource("1_s62li")
+
+[node name="Backround" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(604, 438)
+scale = Vector2(2.1875, 2.18982)
+texture = ExtResource("3_d0ig6")
+
+[node name="PurpleClouds" type="Sprite2D" parent="."]
+position = Vector2(596.5, 616.25)
+scale = Vector2(2.23438, 1.01698)
+texture = ExtResource("6_ilm4f")
+
+[node name="BrownBoard" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(698, 318)
+scale = Vector2(6.11561, 1.27711)
+texture = ExtResource("4_l82jx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_yfd26")
+autoplay = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(256, 166)
+scale = Vector2(6.92505, 6.5202)
+sprite_frames = SubResource("SpriteFrames_7b7vm")
+animation = &"jump"
+autoplay = "idle"
+frame_progress = 0.888982
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 169.0
+offset_top = 253.0
+offset_right = 662.0
+offset_bottom = 317.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("2_j5omk")
+theme_override_font_sizes/font_size = 39
+text = "Cat's Doughnut Adventure"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+text_overrun_behavior = 4
+
+[node name="Doughnuts" type="Sprite2D" parent="."]
+position = Vector2(851, 295)
+rotation = -0.438078
+scale = Vector2(2.70312, 2.5414)
+texture = ExtResource("9_8yp88")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="Credits1" type="Label" parent="."]
+visible = false
+offset_left = 327.0
+offset_top = 100.0
+offset_right = 1202.0
+offset_bottom = 357.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "I made some adjustments to original assets:
+Player & Npc Kitty by Caz Creates Games. Source: https://caz-creates-games.itch.io/kitty 
+Sugarland TileSet (TileSet + Doughnuts). By GatDeSucre. Source: https://gatdesucre.itch.io/sugarland-tileset
+Background clouds by craftpix.net. Source: https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set
+Collectibles (candy icons) and spikes. By Qunoot.art. Source: https://qunootart.itch.io/candy-land
+
+
+
+"
+autowrap_mode = 3
+
+[node name="Credits3" type="Label" parent="."]
+visible = false
+offset_left = 663.0
+offset_top = 340.0
+offset_right = 1131.0
+offset_bottom = 805.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Game sounds:
+gone fishin by memoraphile. Source: https://opengameart.org/content/gone-fishin
+Caketown by Matthew Pablo. License: CC-BY-SA 3.0. Source: https://opengameart.org/content/caketown-cuteplayful
+BattleRGPTheme by CleytonRX. Source: https://opengameart.org/content/boss-battle-theme
+9 Popsicle& Strawberry Mousse by bluelike_u. Source: https://pixabay.com/users/bluelike_u-24430674/
+Covert Action by congusbongus. Source: https://opengameart.org/content/covert-action
+Happy Birthday Funk Spot by Muzaproduction. Source: https://pixabay.com/music/jingles-happy-birthday-funk-spot-16197/
+Some sound effects done with: https://sfxr.me/
+
+
+
+"
+autowrap_mode = 3
+
+[node name="Credits4" type="Label" parent="."]
+visible = false
+offset_left = -8.0
+offset_top = 485.0
+offset_right = 660.0
+offset_bottom = 742.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Toxic Frog by Eduardo Scarpato. Source: https://eduardscarpato.itch.io/toxic-frog-animations-pixel-art-2d-free
+Sprite Pack 5 (Enemies, Npc). By GrafxKid. Source: https://grafxkid.itch.io/sprite-pack-5
+
+Portals. By LetargicDev.  Source: https://opengameart.org/content/portals
+Worm’s Explosion animation by Limofeus. Source: https://limofeus.itch.io/pixel-simulations
+Super candy set (Chocolate Tiles etc.) by Master484. Source: https://opengameart.org/content/super-candy-set-m484-games
+"
+autowrap_mode = 3
+
+[node name="Credits5" type="Label" parent="."]
+visible = false
+offset_left = -6.0
+offset_top = 395.0
+offset_right = 639.0
+offset_bottom = 556.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Friendly scribbles font by @kmlgames. Source: https://kmlgames.itch.io/friendly-scribbles
+mini GUI elements by hiorespace. Source: https://hiorespace.itch.io/minigui
+
+
+"
+autowrap_mode = 3
+
+[node name="Options" type="VFlowContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 189.0
+offset_top = 330.0
+offset_right = 557.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.065, 1.065)
+theme = ExtResource("2_7o2m0")
+theme_override_constants/h_separation = 15
+alignment = 1
+
+[node name="StartButton" type="Button" parent="Options"]
+layout_mode = 2
+theme = ExtResource("2_7o2m0")
+text = "Start Game"
+
+[node name="QuitButton" type="Button" parent="Options"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_7o2m0")
+text = "Quit Game"
+
+[node name="FullscreenButton" type="Button" parent="Options"]
+layout_mode = 2
+theme = ExtResource("2_7o2m0")
+text = "Toggle Fullscreen"
+
+[node name="Credits" type="Button" parent="Options"]
+layout_mode = 2
+text = "Credits"
+
+[connection signal="pressed" from="Options/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Options/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Options/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="Options/Credits" to="." method="_on_credits_pressed"]

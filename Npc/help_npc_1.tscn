@@ -1,0 +1,184 @@
+[gd_scene load_steps=21 format=3 uid="uid://bj47d04x6knpk"]
+
+[ext_resource type="Script" path="res://Npc/help_npc_1.gd" id="1_1lfbb"]
+[ext_resource type="Texture2D" uid="uid://dg3l3x2reyisv" path="res://Art/CandyKitty.png" id="2_8tpwn"]
+[ext_resource type="Texture2D" uid="uid://c6gn0ry3qbcrf" path="res://Art/Mini GUI Elements/Ask.png" id="5_d5v8u"]
+[ext_resource type="Texture2D" uid="uid://b8ah2brxeiwxo" path="res://Art/Mini GUI Elements/Board.png" id="5_iqomy"]
+[ext_resource type="FontFile" uid="uid://ctvref1scnoff" path="res://Art/friendlyscribbles/friendlyscribbles.ttf" id="6_1emyt"]
+[ext_resource type="Texture2D" uid="uid://bc35m8mkoqbt1" path="res://Art/Mini GUI Elements/Exclamation.png" id="6_rtcj8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p88mh"]
+atlas = ExtResource("2_8tpwn")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qdyr"]
+atlas = ExtResource("2_8tpwn")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ottk7"]
+atlas = ExtResource("2_8tpwn")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0umk3"]
+atlas = ExtResource("2_8tpwn")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mnti"]
+atlas = ExtResource("2_8tpwn")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syeal"]
+atlas = ExtResource("2_8tpwn")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2tp1"]
+atlas = ExtResource("2_8tpwn")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edu8i"]
+atlas = ExtResource("2_8tpwn")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m56m6"]
+atlas = ExtResource("2_8tpwn")
+region = Rect2(192, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6344"]
+atlas = ExtResource("2_8tpwn")
+region = Rect2(224, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h8lae"]
+animations = [{
+"frames": [{
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_p88mh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qdyr")
+}],
+"loop": true,
+"name": &"annoyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ottk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0umk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mnti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syeal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2tp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edu8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m56m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6344")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eew8"]
+size = Vector2(79.2545, 14.6998)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em4mb"]
+size = Vector2(15.8064, 11.9473)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qqeo"]
+size = Vector2(14.3125, 3.9375)
+
+[node name="help_npc_1" type="CharacterBody2D"]
+position = Vector2(0.325325, -11.2228)
+script = ExtResource("1_1lfbb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.594604, 3.27032)
+sprite_frames = SubResource("SpriteFrames_h8lae")
+animation = &"idle"
+frame_progress = 0.290832
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.898006, 10.8034)
+shape = SubResource("RectangleShape2D_5eew8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.594407, 11.1513)
+shape = SubResource("RectangleShape2D_em4mb")
+debug_color = Color(0.988587, 0.351194, 0.636099, 0.42)
+
+[node name="Board" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.756863)
+z_index = 1
+position = Vector2(1.09401, -43.5555)
+scale = Vector2(0.650257, 0.300364)
+texture = ExtResource("5_iqomy")
+
+[node name="NpcBoard" type="Label" parent="Board"]
+anchors_preset = -1
+anchor_left = -0.0310471
+anchor_top = -0.0449428
+anchor_right = 1.00322
+anchor_bottom = 0.94773
+offset_left = -82.0079
+offset_top = -72.6744
+offset_right = -100.621
+offset_bottom = -249.828
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.974076, 2.34677)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("6_1emyt")
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="2Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2Area"]
+position = Vector2(-0.71875, 5.65625)
+shape = SubResource("RectangleShape2D_0qqeo")
+
+[node name="r_ray" type="RayCast2D" parent="."]
+modulate = Color(1, 0.454902, 1, 1)
+position = Vector2(-0.383012, 11.2122)
+target_position = Vector2(220, 0)
+
+[node name="l_ray" type="RayCast2D" parent="."]
+modulate = Color(1, 0.454902, 1, 1)
+position = Vector2(-0.383012, 11.2122)
+target_position = Vector2(-250, 0)
+
+[node name="Ask" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1.99883, -30.2899)
+texture = ExtResource("5_d5v8u")
+
+[node name="Exclamation" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.756863)
+position = Vector2(-0.366117, -21.6758)
+scale = Vector2(0.915057, 0.851349)
+texture = ExtResource("6_rtcj8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="2Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="2Area" to="." method="_on_area_body_exited"]

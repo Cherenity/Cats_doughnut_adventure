@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv788cdr8ysnb"]
+
+[ext_resource type="Script" path="res://Main/pause_menu.gd" id="1_xbyii"]
+[ext_resource type="FontFile" uid="uid://ctvref1scnoff" path="res://Art/friendlyscribbles/friendlyscribbles.ttf" id="2_c01mi"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oef0c"]
+
+[sub_resource type="Theme" id="Theme_t38kg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rldma"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xbyii")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_oef0c")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.7833
+offset_top = 129.337
+offset_right = -10.7833
+offset_bottom = 129.337
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.227451, 0.227451, 0.227451, 0.431373)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -145.0
+offset_right = 139.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_t38kg")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("2_c01mi")
+text = " Resume"
+
+[node name="FullScreen" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("2_c01mi")
+text = "Fullscreen"
+
+[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_rldma")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("2_c01mi")
+text = "Restart"
+
+[node name="MainMenu" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("2_c01mi")
+text = "Main Menu"
+
+[node name="Mute" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("2_c01mi")
+text = "Mute"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("2_c01mi")
+text = "Exit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/FullScreen" to="." method="_on_full_screen_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Mute" to="." method="_on_mute_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

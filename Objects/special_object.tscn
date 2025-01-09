@@ -1,0 +1,104 @@
+[gd_scene load_steps=16 format=3 uid="uid://cc6tk6dhfag31"]
+
+[ext_resource type="Texture2D" uid="uid://dpopg7gtbed8s" path="res://Art/Candy Land - full pack v1.1/collectables.png" id="1_ij11e"]
+[ext_resource type="Script" path="res://Objects/special_object.gd" id="1_lo00x"]
+[ext_resource type="Texture2D" uid="uid://c7x1g4uq6oy87" path="res://Art/ToxicFrog/PurpleWhite/ToxicFrogPurpleWhite_Sheet.png" id="3_lmyp1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv76a"]
+atlas = ExtResource("1_ij11e")
+region = Rect2(0, 112, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ac0i"]
+atlas = ExtResource("1_ij11e")
+region = Rect2(16, 112, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrykf"]
+atlas = ExtResource("1_ij11e")
+region = Rect2(32, 112, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62le1"]
+atlas = ExtResource("1_ij11e")
+region = Rect2(48, 112, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf0ny"]
+atlas = ExtResource("3_lmyp1")
+region = Rect2(144, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b251e"]
+atlas = ExtResource("3_lmyp1")
+region = Rect2(192, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j28pa"]
+atlas = ExtResource("3_lmyp1")
+region = Rect2(240, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpqie"]
+atlas = ExtResource("3_lmyp1")
+region = Rect2(288, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt76t"]
+atlas = ExtResource("3_lmyp1")
+region = Rect2(336, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxdic"]
+atlas = ExtResource("3_lmyp1")
+region = Rect2(384, 192, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2j57h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv76a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ac0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrykf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62le1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf0ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b251e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j28pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpqie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt76t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxdic")
+}],
+"loop": true,
+"name": &"dissapear",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lwx0"]
+
+[node name="special_object" type="Area2D"]
+script = ExtResource("1_lo00x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.619799, 0.916858, 0.64086, 1)
+position = Vector2(0.23597, -2.59565)
+sprite_frames = SubResource("SpriteFrames_2j57h")
+animation = &"dissapear"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8lwx0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

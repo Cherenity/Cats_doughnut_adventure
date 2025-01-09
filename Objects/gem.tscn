@@ -1,0 +1,131 @@
+[gd_scene load_steps=18 format=3 uid="uid://cuvpmc5ysofbs"]
+
+[ext_resource type="Script" path="res://Objects/gem.gd" id="1_d11nt"]
+[ext_resource type="Texture2D" uid="uid://dpopg7gtbed8s" path="res://Art/Candy Land - full pack v1.1/collectables.png" id="2_m3gbv"]
+[ext_resource type="AudioStream" uid="uid://diw1bykiy4o3b" path="res://Music/pickupCoin.wav" id="3_jqj3q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3h1y"]
+size = Vector2(12.5, 13.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebr40"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwx4a"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4kvl"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0utx4"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkx4t"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw1m3"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynxi3"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nei7"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v426j"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r45c"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrh6d"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r2ui"]
+atlas = ExtResource("2_m3gbv")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdee7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebr40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwx4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4kvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0utx4")
+}],
+"loop": true,
+"name": &"candy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkx4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw1m3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynxi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nei7")
+}],
+"loop": true,
+"name": &"lollipop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v426j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r45c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrh6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r2ui")
+}],
+"loop": true,
+"name": &"melon",
+"speed": 5.0
+}]
+
+[node name="Gem" type="Area2D" groups=["Gems"]]
+modulate = Color(1, 0.796078, 1, 1)
+scale = Vector2(2, 2)
+script = ExtResource("1_d11nt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, -0.25)
+shape = SubResource("RectangleShape2D_a3h1y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_cdee7")
+animation = &"candy"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jqj3q")
+volume_db = -10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_collected_sfx_finished"]
